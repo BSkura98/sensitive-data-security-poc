@@ -3,5 +3,8 @@
     "esbuild": "^0.14.25",
     "serverless-esbuild": "^1.25.0"
   },
-  "name": "sensitive-data-security-api"
+  "name": "sensitive-data-security-api",
+  "dependencies": {
+    "aws-lambda": "^1.0.7"
+  }
 }
