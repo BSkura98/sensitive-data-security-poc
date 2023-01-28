@@ -4,6 +4,12 @@ terraform {
       source  = "hashicorp/aws"
     }
   }
+
+  backend "s3" {
+    bucket = "sds-state"
+    key    = "dev/terraform.tfstate"
+    region = "us-east-1"
+  }
 }
 
 provider "aws" {
@@ -15,7 +21,7 @@ resource "aws_s3_bucket" "test-bucket" {
   bucket = "sensitive-data-security-dev-test-bucket"
 
   tags = {
-    Name        = "Test bucket"
+    Name        = "Test bucket dev"
     Project     = "sensitive-data-security"
     Environment = "dev"
   }
