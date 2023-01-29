@@ -17,12 +17,20 @@ provider "aws" {
   shared_credentials_files = ["~/.aws/credentials"]
 }
 
+locals {
+  tags = {
+    Project     = "sensitive-data-security"
+    Environment = var.env
+  }
+}
+
 resource "aws_s3_bucket" "test-bucket" {
   bucket = "sensitive-data-security-dev-test-bucket"
 
-  tags = {
-    Name        = "Test bucket dev"
-    Project     = "sensitive-data-security"
-    Environment = "dev"
-  }
+  tags = merge(
+    local.tags,
+    {
+      Name = "Test bucket ${var.env}"
+    }
+  )
 }
