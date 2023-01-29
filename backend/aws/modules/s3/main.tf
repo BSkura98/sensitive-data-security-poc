@@ -6,7 +6,7 @@ locals {
 }
 
 resource "aws_s3_bucket" "test-bucket" {
-  bucket = "sensitive-data-security-dev-test-bucket"
+  bucket = "sensitive-data-security-${var.env}-test-bucket"
 
   tags = merge(
     local.tags,
