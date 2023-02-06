@@ -1,4 +1,5 @@
 {
+  "name": "sensitive-data-security-api",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.50.0",
@@ -9,8 +10,9 @@
     "serverless-offline": "^12.0.4",
     "typescript": "^4.9.5"
   },
-  "name": "sensitive-data-security-api",
   "dependencies": {
-    "aws-lambda": "^1.0.7"
+    "aws-lambda": "^1.0.7",
+    "aws-sdk": "^2.1307.0",
+    "jsonschema": "^1.4.1"
   }
 }

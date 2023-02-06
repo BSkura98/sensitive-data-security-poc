@@ -6,12 +6,12 @@ provider:
   runtime: nodejs14.x
 
 functions:
-  hello:
-    handler: handler.hello
+  detectPii:
+    handler: src/controller/detectPii/handler.detectPii
     events:
       - http:
-          path: hello
-          method: get
+          path: detectPii
+          method: post
 
 
 plugins:
