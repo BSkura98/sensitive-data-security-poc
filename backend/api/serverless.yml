@@ -5,6 +5,16 @@ provider:
   name: aws
   runtime: nodejs14.x
 
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - "comprehend:DetectPiiEntities"
+          Resource:
+            - "*"
+
+
 functions:
   detectPii:
     handler: src/controller/detectPii/handler.detectPii
