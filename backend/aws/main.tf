@@ -14,10 +14,24 @@ terraform {
 provider "aws" {
   region                   = "us-east-1"
   shared_credentials_files = ["~/.aws/credentials"]
+
+  default_tags {
+    tags = {
+      Project     = var.project
+      Environment = var.env
+    }
+  }
 }
 
 module "s3" {
   source = "./modules/s3"
+
+  env = var.env
+  project = var.project
+}
+
+module "cognito" {
+  source = "./modules/cognito"
 
   env = var.env
   project = var.project
